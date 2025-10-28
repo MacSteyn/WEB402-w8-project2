@@ -469,3 +469,53 @@ body {
   display: flex;
   gap: 0.5rem;
 }
+
+/* ========================
+   Note Form Styles
+   ======================== */
+#note-form label,
+#note-form input,
+#note-form textarea {
+  display: block;         /* Stack fields vertically */
+  width: 100%;            /* Full width of container */
+  margin-bottom: 0.75rem; /* Space between fields */
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+#note-form input,
+#note-form textarea {
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#note-form textarea {
+  min-height: 120px;      /* Bigger content box */
+  resize: vertical;       /* Allow vertical resize */
+}
+
+#note-form input:focus,
+#note-form textarea:focus {
+  border-color: var(--accent-dark);
+  box-shadow: 0 0 6px rgba(99,102,241,0.3);
+  outline: none;
+}
+
+/* Optional: make tag input aligned nicely under content */
+#note-form .form-row {
+  margin-bottom: 0.75rem;
+}
+
+/* Buttons */
+#note-form .form-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ========================
+   End of styles.css
+   ======================== */
+   
