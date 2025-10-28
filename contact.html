@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Notes App — Contact</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Font Awesome CDN for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-p1V5r6mPbsD4sMz4Lr1y6aMJWsw4ENxMBO5vX1hGZZh8ay4R7VPhX1ebIG4EhvW3N1m5JrUjbfM9JmjI2ZPIwg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header class="header" role="banner">
+    <div class="container header-top">
+      <div class="logo">
+        <div class="logo-box" aria-hidden="true">X</div>
+        <h1 class="brand">NotesApp</h1>
+      </div>
+
+      <button id="nav-toggle-3" class="nav-toggle" aria-expanded="false" aria-controls="main-nav-3">
+        <span class="sr-only">Toggle navigation</span>
+        ☰
+      </button>
+
+      <nav id="main-nav-3" class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="notes.html" class="nav-link">Notes</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="register.html" class="nav-link">Register</a>
+      </nav>
+    </div>
+
+    <div class="hero container" role="region" aria-label="Contact hero">
+      <h2 class="hero-title">Contact Us</h2>
+      <p class="hero-sub">Have a question or feedback? Send us a message.</p>
+    </div>
+  </header>
+
+  <main class="container main-content" role="main">
+    <section class="contact-section" aria-labelledby="contact-heading">
+      <h3 id="contact-heading">Send a Message</h3>
+
+      <form id="contact-form" class="contact-form" aria-label="Contact form">
+        <label for="contact-name">Name</label>
+        <input id="contact-name" name="name" type="text" placeholder="Your name" required maxlength="80" />
+
+        <label for="contact-email">Email</label>
+        <input id="contact-email" name="email" type="email" placeholder="you@example.com" required />
+
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" rows="6" placeholder="Write your message..." required></textarea>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Send Message</button>
+          <button type="reset" class="btn neutral">Reset</button>
+        </div>
+      </form>
+
+      <div id="contact-feedback" aria-live="polite" class="feedback"></div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-section" aria-labelledby="social-heading">
+      <h3 id="social-heading">Connect with Us</h3>
+      <p>Follow us on social media for updates and news:</p>
+      <div class="social-links">
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="social-icon instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" aria-label="Twitter" class="social-icon twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="social-icon linkedin">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="social-icon facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year-3"></span> NotesApp</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#">Privacy</a> · <a href="#">Terms</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

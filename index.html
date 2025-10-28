@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Notes App — Home</title>
+  <!-- Google Fonts + Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- ===== Header ===== -->
+  <header class="header" role="banner">
+    <div class="container header-top">
+      <div class="logo" aria-label="Notes App logo">
+        <div class="logo-box" aria-hidden="true"><i class="fa-solid fa-note-sticky"></i></div>
+        <h1 class="brand">NotesApp</h1>
+      </div>
+
+      <!-- Mobile Nav Toggle -->
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="main-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- Navigation -->
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="notes.html" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> Notes</a>
+        <a href="contact.html" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
+        <a href="register.html" class="nav-link"><i class="fa-solid fa-user-plus"></i> Register</a>
+      </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero container" role="region" aria-label="Hero">
+      <h2 class="hero-title">Your Personal Productivity Tool</h2>
+      <p class="hero-sub">Organize your thoughts, ideas, and tasks all in one place — clean, simple, and accessible.</p>
+      <div class="cta">
+        <a class="btn primary" href="register.html"><i class="fa-solid fa-user-plus"></i> Get Started</a>
+        <a class="btn neutral" href="notes.html"><i class="fa-solid fa-book"></i> View Notes</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Main Content ===== -->
+  <main class="container main-content" role="main">
+    <section class="features" aria-labelledby="features-heading">
+      <h3 id="features-heading"><i class="fa-solid fa-layer-group"></i> App Overview</h3>
+      <p>Wanna know? What's inside? It has four primary pages — Home, Notes Dashboard, Contact, and Register.</p>
+
+      <div class="feature-cards">
+        <article class="card">
+          <i class="fa-solid fa-house"></i>
+          <h4>Home Page</h4>
+          <p>Welcomes users with a tagline and call-to-action buttons.</p>
+        </article>
+
+        <article class="card">
+          <i class="fa-solid fa-pen-to-square"></i>
+          <h4>Notes Dashboard</h4>
+          <p>Create, edit, delete, and search your notes. Notes are stored locally in your browser.</p>
+        </article>
+
+        <article class="card">
+          <i class="fa-solid fa-envelope"></i>
+          <h4>Contact Page</h4>
+          <p>Send a message (demo contact form with validation).</p>
+        </article>
+
+        <article class="card">
+          <i class="fa-solid fa-user-plus"></i>
+          <h4>Register Page</h4>
+          <p>Register a new user (demo validation and localStorage demo).</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wireframe" aria-labelledby="wireframe-heading">
+      <h3 id="wireframe-heading"><i class="fa-solid fa-diagram-project"></i> Wireframes & App Structure</h3>
+      <p> </p>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> DambarOjha — All rights reserved.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#">Privacy</a> · <a href="#">Terms</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ===== Script ===== -->
+  <script>
+    // Auto-update footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Responsive nav toggle
+    const navToggle = document.getElementById("nav-toggle");
+    const nav = document.getElementById("main-nav");
+    navToggle.addEventListener("click", () => {
+      nav.classList.toggle("open");
+      const expanded = navToggle.getAttribute("aria-expanded") === "true" || false;
+      navToggle.setAttribute("aria-expanded", !expanded);
+    });
+  </script>
+</body>
+</html>

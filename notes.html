@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Notes App — Notes</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-p1V5r6mPbsD4sMz4Lr1y6aMJWsw4ENxMBO5vX1hGZZh8ay4R7VPhX1ebIG4EhvW3N1m5JrUjbfM9JmjI2ZPIwg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header class="header" role="banner">
+    <div class="container header-top">
+      <div class="logo">
+        <div class="logo-box" aria-hidden="true">X</div>
+        <h1 class="brand">NotesApp</h1>
+      </div>
+
+      <button id="nav-toggle-2" class="nav-toggle" aria-expanded="false" aria-controls="main-nav-2">
+        <span class="sr-only">Toggle navigation</span>
+        ☰
+      </button>
+
+      <nav id="main-nav-2" class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="notes.html" class="nav-link active">Notes</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="register.html" class="nav-link">Register</a>
+      </nav>
+    </div>
+
+    <div class="hero container" role="region" aria-label="Notes hero">
+      <h2 class="hero-title">Your Notes</h2>
+      <p class="hero-sub">Create, edit, and organize your notes quickly and beautifully.</p>
+    </div>
+  </header>
+
+  <main class="container main-content" role="main">
+    <section class="notes-dashboard" aria-labelledby="notes-heading">
+      <div class="notes-left">
+        <h3 id="notes-heading"><i class="fa-solid fa-pencil"></i> Create a Note</h3>
+        <form id="note-form" aria-label="Create or edit note">
+          <input type="hidden" id="note-id" />
+          
+          <label for="note-title">Title</label>
+          <input id="note-title" name="title" type="text" placeholder="Note title" required maxlength="100" />
+
+          <label for="note-content">Content</label>
+          <textarea id="note-content" name="content" rows="6" placeholder="Write your note here..." required></textarea>
+
+          <div class="form-row">
+            <label for="note-tag">Tag (optional)</label>
+            <input id="note-tag" name="tag" type="text" placeholder="e.g., ideas, todo" maxlength="30" />
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary" id="save-note"><i class="fa-solid fa-floppy-disk"></i> Save Note</button>
+            <button type="button" class="btn neutral" id="clear-form"><i class="fa-solid fa-eraser"></i> Clear</button>
+          </div>
+        </form>
+      </div>
+
+      <aside class="notes-right" aria-labelledby="your-notes-heading">
+        <div class="notes-toolbar">
+          <h3 id="your-notes-heading"><i class="fa-solid fa-book"></i> Your Notes</h3>
+          <div class="search-row">
+            <input id="search-input" type="search" placeholder="Search notes..." aria-label="Search notes" />
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <select id="filter-tag" aria-label="Filter by tag">
+              <option value="">All tags</option>
+            </select>
+          </div>
+        </div>
+
+        <ul id="notes-list" class="notes-list" aria-live="polite">
+          <!-- Example note -->
+          <!-- <li class="note-item">
+            <div class="note-top">
+              <strong class="note-title">Sample Note</strong>
+              <span class="note-meta">tag: ideas</span>
+            </div>
+            <p class="note-content">This is a beautifully styled note.</p>
+            <div class="note-actions">
+              <button class="small-btn edit"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+              <button class="small-btn delete"><i class="fa-solid fa-trash"></i> Delete</button>
+            </div>
+          </li> -->
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year-2"></span> NotesApp</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#">Privacy</a> · <a href="#">Terms</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
