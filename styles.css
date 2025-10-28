@@ -403,3 +403,69 @@ body {
   .notes-list::-webkit-scrollbar { height: 8px; }
   .notes-list::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
 }
+
+/* ========================
+   Register Page Styles
+   ======================== */
+
+.register-form label,
+.register-form input {
+  display: block;       /* force vertical stacking */
+  width: 100%;          /* full width of container */
+  margin-bottom: 0.75rem; /* space between fields */
+}
+
+.register-form input {
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-form input:focus {
+  border-color: var(--accent-dark);
+  box-shadow: 0 0 6px rgba(99,102,241,0.3);
+  outline: none;
+}
+
+/* ========================
+   Contact Page Styles
+   ======================== */
+
+.contact-form label,
+.contact-form input,
+.contact-form textarea {
+  display: block;         /* Stack fields vertically */
+  width: 100%;            /* Full width of container */
+  margin-bottom: 0.75rem; /* Space between fields */
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form textarea {
+  min-height: 120px;      /* Bigger message box */
+  resize: vertical;       /* Allow vertical resize */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent-dark);
+  box-shadow: 0 0 6px rgba(99,102,241,0.3);
+  outline: none;
+}
+
+/* Buttons */
+.contact-form .form-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
