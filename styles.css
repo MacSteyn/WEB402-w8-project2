@@ -1,5 +1,5 @@
 /* =========================
-   Modern Vibrant Styles
+   Modern Vibrant Styles with Dark Mode & Notes Enhancements
    ========================= */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
@@ -20,6 +20,19 @@
   font-family: "Poppins", sans-serif;
 }
 
+/* === Dark Mode Variables === */
+:root[data-theme="dark"] {
+  --bg: #1f2937;
+  --panel: #111827;
+  --muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-dark: #2563eb;
+  --highlight: #facc15;
+  --neutral: #374151;
+  --text: #f3f4f6;
+  --shadow: 0 12px 30px rgba(59, 130, 246, 0.2);
+}
+
 /* Basic Reset */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; scroll-behavior: smooth; }
@@ -28,6 +41,7 @@ body {
   color: var(--text);
   line-height: 1.7;
   font-family: "Poppins", sans-serif;
+  transition: background 0.3s, color 0.3s;
 }
 
 /* Container */
@@ -44,6 +58,7 @@ body {
   box-shadow: 0 6px 20px rgba(99, 102, 241, 0.08);
   position: relative;
   overflow: hidden;
+  transition: background 0.3s, color 0.3s;
 }
 .header::before {
   content: "";
@@ -236,7 +251,7 @@ body {
 
 /* Mobile */
 @media (max-width: 900px) {
-  .nav { display: none; flex-direction: column; background: white; position: absolute; top: 70px; right: 20px; padding: 1rem; border-radius: 10px; box-shadow: var(--shadow); }
+  .nav { display: none; flex-direction: column; background: var(--panel); position: absolute; top: 70px; right: 20px; padding: 1rem; border-radius: 10px; box-shadow: var(--shadow); }
   .nav.open { display: flex; }
   .nav-toggle { display: inline-block; }
   .hero-title { font-size: 2rem; }
@@ -253,17 +268,36 @@ body {
 }
 
 /* === Notes Card Styles === */
-.notes-list .note-item {
-  background: #ffffff;
+.notes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.notes-list::-webkit-scrollbar {
+  width: 8px;
+}
+.notes-list::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+.note-item {
+  background: var(--panel);
   padding: 1.2rem;
   border-radius: 16px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
   margin-bottom: 1rem;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-
-.notes-list .note-item:hover {
+.note-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 24px rgba(0,0,0,0.12);
 }
@@ -274,17 +308,22 @@ body {
   align-items: center;
 }
 
-/* === Note Tags === */
+/* === Note Icons & Tags === */
+.note-icon {
+  font-size: 1.3rem;
+  color: var(--accent-dark);
+  margin-right: 0.5rem;
+}
+
 .note-meta {
   display: inline-block;
   padding: 4px 10px;
   border-radius: 8px;
   font-size: 0.85rem;
   font-weight: 500;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s;
+  cursor: pointer;
 }
-
-/* Animated Tag Colors */
 .note-meta[data-tag="ideas"] { background: #ffe4e1; color: #d93856; }
 .note-meta[data-tag="todo"] { background: #e0f7fa; color: #00796b; }
 .note-meta[data-tag="work"] { background: #fff3e0; color: #f57c00; }
@@ -305,21 +344,19 @@ body {
   font-size: 0.9rem;
   transition: background 0.3s ease, transform 0.2s ease;
 }
-
 .note-actions .small-btn:hover {
   background: #0b74ff;
   color: #fff;
   transform: translateY(-2px);
 }
 
-/* === Search Bar Animation === */
+/* Search Bar Animation */
 .search-row {
   display: flex;
   gap: 0.5rem;
   align-items: center;
   position: relative;
 }
-
 .search-row input[type="search"] {
   width: 100%;
   padding: 8px 36px 8px 10px;
@@ -327,31 +364,42 @@ body {
   border: 1px solid #ccc;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-
 .search-row input[type="search"]:focus {
   border-color: #0b74ff;
   box-shadow: 0 0 6px rgba(11, 116, 255, 0.3);
   outline: none;
 }
-
 .search-row .search-icon {
   position: absolute;
   right: 12px;
   color: #888;
   transition: color 0.3s ease;
 }
-
 .search-row input[type="search"]:focus + .search-icon {
   color: #0b74ff;
 }
 
-/* === Optional Pulse Animation for New Notes === */
+/* Optional Pulse Animation for New Notes */
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 rgba(11, 116, 255, 0.4); }
   70% { box-shadow: 0 0 0 10px rgba(11, 116, 255, 0); }
   100% { box-shadow: 0 0 0 0 rgba(11, 116, 255, 0); }
 }
+.note-item.new { animation: pulse 1.5s ease-out; }
 
-.note-item.new {
-  animation: pulse 1.5s ease-out;
+/* === Responsive Carousel for Small Screens === */
+@media(max-width: 600px) {
+  .notes-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    scroll-snap-type: x mandatory;
+  }
+  .note-item {
+    min-width: 250px;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+  .notes-list::-webkit-scrollbar { height: 8px; }
+  .notes-list::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
 }
